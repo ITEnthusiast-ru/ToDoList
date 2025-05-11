@@ -1,0 +1,24 @@
+﻿<Window x:Class="ToDoList.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ToDoList"
+        mc:Ignorable="d"
+        Title="Сприсок дел" Height="450" Width="800" Loaded="Window_Loaded">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="415*"/>
+            <ColumnDefinition Width="155*"/>
+            <ColumnDefinition Width="149*"/>
+            <ColumnDefinition Width="81*"/>
+        </Grid.ColumnDefinitions>
+        <DataGrid Name="ToDoList" FontSize="16" FontWeight="Bold" Padding="5" Grid.ColumnSpan="4" AutoGenerateColumns="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Дата создания задачи" Binding="{Binding Path = CreationTime}" IsReadOnly="True" Width="190"></DataGridTextColumn>
+                <DataGridCheckBoxColumn Header="Статус выполнения" Binding="{Binding Path = IsDone,UpdateSourceTrigger=PropertyChanged}" IsReadOnly="False"></DataGridCheckBoxColumn>
+                <DataGridTextColumn Header="Описание задачи" Width="*" Binding="{Binding Path = Text}" IsReadOnly="False"></DataGridTextColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</Window>
